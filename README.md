@@ -1,5 +1,5 @@
 # FileConverter
-# by TintingPatch
+### by TintingPatch
 
 > [!Caution]
 > If an issue occours please let me know.
