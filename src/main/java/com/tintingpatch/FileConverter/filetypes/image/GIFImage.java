@@ -1,7 +1,8 @@
 package com.tintingpatch.FileConverter.filetypes.image;
 
 import com.tintingpatch.FileConverter.util.CouldNotConvertFileException;
-import com.tintingpatch.FileConverter.util.Filetype;
+import com.tintingpatch.FileConverter.util.ImageFiletype;
+import com.tintingpatch.FileConverter.util.ImageFiletypes;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class GIFImage implements Filetype {
+public class GIFImage implements ImageFiletype {
     public int currentImage = 0;
     @Override
     public BufferedImage read(File file) throws IOException, CouldNotConvertFileException {
@@ -82,5 +83,10 @@ public class GIFImage implements Filetype {
         } catch (IOException e) {
             throw new CouldNotConvertFileException("Could not convert buffered image to gif: " + e.getMessage(), e.getCause());
         }
+    }
+
+    @Override
+    public ImageFiletypes getImageFileType() {
+        return ImageFiletypes.GIF;
     }
 }

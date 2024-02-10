@@ -1,14 +1,15 @@
 package com.tintingpatch.FileConverter.filetypes.image;
 
 import com.tintingpatch.FileConverter.util.CouldNotConvertFileException;
-import com.tintingpatch.FileConverter.util.Filetype;
+import com.tintingpatch.FileConverter.util.ImageFiletype;
+import com.tintingpatch.FileConverter.util.ImageFiletypes;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class PNGImage implements Filetype {
+public class PNGImage implements ImageFiletype {
     @Override
     public BufferedImage read(File file) throws IOException, CouldNotConvertFileException {
         return ImageIO.read(file);
@@ -21,5 +22,10 @@ public class PNGImage implements Filetype {
         } catch (IOException e) {
             throw new CouldNotConvertFileException("Could not convert buffered image to png: " + e.getMessage(), e.getCause());
         }
+    }
+
+    @Override
+    public ImageFiletypes getImageFileType() {
+        return ImageFiletypes.PNG;
     }
 }

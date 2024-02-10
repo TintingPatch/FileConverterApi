@@ -1,7 +1,8 @@
 package com.tintingpatch.FileConverter.filetypes.image;
 
 import com.tintingpatch.FileConverter.util.CouldNotConvertFileException;
-import com.tintingpatch.FileConverter.util.Filetype;
+import com.tintingpatch.FileConverter.util.ImageFiletype;
+import com.tintingpatch.FileConverter.util.ImageFiletypes;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.transcoder.TranscoderException;
 import org.apache.batik.transcoder.TranscoderInput;
@@ -16,7 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class SVGImage implements Filetype {
+public class SVGImage implements ImageFiletype {
     @Override
     public BufferedImage read(File file) throws IOException, CouldNotConvertFileException {
         BufferedImage image = null;
@@ -74,5 +75,10 @@ public class SVGImage implements Filetype {
     @Override
     public void write(File file, BufferedImage image) throws CouldNotConvertFileException {
         throw new CouldNotConvertFileException("Incompatible filetype", new Throwable("Raster cannot be converted to Vector"));
+    }
+
+    @Override
+    public ImageFiletypes getImageFileType() {
+        return ImageFiletypes.SVG;
     }
 }
