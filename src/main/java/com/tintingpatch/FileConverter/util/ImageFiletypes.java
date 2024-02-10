@@ -1,15 +1,17 @@
 package com.tintingpatch.FileConverter.util;
 
+import com.tintingpatch.FileConverter.filetypes.image.*;
+
 public enum ImageFiletypes {
-    GIF(true),
-    JPG(true),
-    PNG(true),
-    SVG(false),
-    WEBP(true);
+    GIF(new GIFImage()),
+    JPG(new JPGImage()),
+    PNG(new JPGImage()),
+    SVG(new SVGImage()),
+    WEBP(new WEBPImage());
 
-    final boolean canConvertToImage;
+    final ImageFiletype imageFiletypeClass;
 
-    ImageFiletypes(boolean canConvertToImage){
-        this.canConvertToImage = canConvertToImage;
+    ImageFiletypes(ImageFiletype imageFiletypeClass){
+        this.imageFiletypeClass = imageFiletypeClass;
     }
 }
