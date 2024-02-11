@@ -14,4 +14,8 @@ public enum ImageFiletypes {
     ImageFiletypes(ImageFiletype imageFiletypeClass){
         this.imageFiletypeClass = imageFiletypeClass;
     }
+
+    public ImageFiletype getImageFiletypeClass(){
+        return imageFiletypeClass;
+    }
 }
